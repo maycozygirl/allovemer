@@ -22,6 +22,20 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover
           )
         ),
+        child: ListView(
+          children: [
+            Padding(
+              padding:
+                const EdgeInsets.only(top: 80),
+              child: Text('กรอกข้อมูลผู้ป่วย',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'TH-Chara',
+                fontSize: 40
+              )),
+            ),
+          ],
+        ),
       ),
     );
   }

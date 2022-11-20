@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/login',
+        theme: ThemeData(fontFamily: 'TH-Chara'),
         routes: routes,
     );
   }
