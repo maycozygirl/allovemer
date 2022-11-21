@@ -53,7 +53,10 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                       child: const Text(
                         "ครอบครัวของฉัน",
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                        style: TextStyle(
+                          fontFamily: 'TH-Chara',
+                          fontSize: 40,
+                        ),
                       ),
                     ),
                   ],
