@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/medicine',
+      initialRoute: '/flashcard',
       theme: ThemeData(fontFamily: 'TH-Chara'),
       routes: routes,
     );
