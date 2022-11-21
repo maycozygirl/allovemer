@@ -1,3 +1,4 @@
+import 'package:al_lover_mer/Themes/colors.dart';
 import 'package:flutter/material.dart';
 
 class FlashcardScreen extends StatefulWidget {
@@ -16,7 +17,21 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
             image: DecorationImage(
                 image: AssetImage("assets/bg.jpg"),
                 fit: BoxFit.cover)),
-      ),
-    );
+                child: Padding(
+                  padding: EdgeInsets.only(top: 50),
+                  child: Center(
+                    child: Container(
+                        width: 350,
+                        height: 730,
+                        decoration: BoxDecoration(
+                            color: kColorYellow,
+                            borderRadius: BorderRadius.circular(20),
+                  ),
+                      ),
+                  ),
+                )
+      )
+      );
+      
   }
 }
