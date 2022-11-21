@@ -21,7 +21,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           child: Center(
             child: Container(
                 width: 350,
-                height: 710,
+                height: 730,
                 decoration: BoxDecoration(
                   color: kColorYellow,
                   borderRadius: BorderRadius.circular(20),
@@ -59,21 +59,99 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                             child: const Text(
                               "ครอบครัวของฉัน",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'TH-Chara',
-                                fontSize: 40,),
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                           Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                           Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                             Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                             Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                             Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                             Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                            ),
+                          ),
+                             Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            padding: const EdgeInsets.all(8),
+                            child: const Text(
+                              "ครอบครัวของฉัน",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
                             ),
                           ),
                         ],
                       ),
-                      )
-                    ],
+                    ),],
                   ),
-                ),
-                ),
-          )
-          ),  
-    )
-    );
+                )),
+          )),
+    ));
   }
 }
