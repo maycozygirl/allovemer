@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Custom_button(
-              text: 'เพิ่มบัตรคำ',
+              text: 'เกมบัตรคำ',
               onPressed: () {
                 Navigator.pushNamed(context, "/flashcard");
               },
