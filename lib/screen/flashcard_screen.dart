@@ -59,11 +59,6 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                   ],
                 )),
           )),
-    ),
-    );
-    
+    ));
   }
 }
-
-
-
