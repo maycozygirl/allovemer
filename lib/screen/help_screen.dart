@@ -14,7 +14,7 @@ class _HelpScreenState extends State<HelpScreen> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/bg_Help.jpg"),
+                image: AssetImage("assets/bg.jpg"),
                 fit: BoxFit.cover)),
       ),
     );
