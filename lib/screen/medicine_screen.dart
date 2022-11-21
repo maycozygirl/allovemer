@@ -27,10 +27,17 @@ class _MedicineScreenState extends State<MedicineScreen> {
                   color: kColorGreen,
                   borderRadius: BorderRadius.circular(20),
                 ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("ยาประจำตัว",textAlign: TextAlign.center,style: TextStyle(fontFamily: 'TH-Chara',fontSize: 40),),
+                ),
               ),
             )),
       ),
-      floatingActionButton: buildAddButton(),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(40.0),
+        child: buildAddButton(),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }

@@ -17,7 +17,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           image: DecorationImage(
               image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
       child: Padding(
-          padding: EdgeInsets.only(top: 50),
+          padding: EdgeInsets.only(top: 100),
           child: Center(
             child: Container(
                 width: 350,
