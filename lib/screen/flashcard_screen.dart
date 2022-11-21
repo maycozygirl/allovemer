@@ -21,16 +21,16 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           child: Center(
             child: Container(
                 width: 350,
-                height: double.infinity,
+                height: 730,
                 decoration: BoxDecoration(
                   color: kColorYellow,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(10, 20, 10, 40),
+                  padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
                   child: Column(
                     children: [
-                      Text("เกมบัตรคำ", style: TextStyle(fontFamily: "TH-Chara",fontSize: 40),),
+                      Text("เกมบัตรคำ", style: TextStyle(fontFamily: 'TH-Chara',fontSize: 40),),
                       Expanded(
                       child: GridView.count(
                         primary: false,
@@ -59,109 +59,9 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                             child: const Text(
                               "ครอบครัวของฉัน",
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 35,),
                             ),
                           ),
-                           Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                           Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                             Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                             Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                             Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                             Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                             Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                             Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              "ครอบครัวของฉัน",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40,),
-                            ),
-                          ),
-                            
-                          
-                          
-
                         ],
                       ),
                     ),],
