@@ -30,6 +30,22 @@ class _MedicineScreenState extends State<MedicineScreen> {
               ),
             )),
       ),
+      floatingActionButton: buildAddButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
+
+
+Widget buildAddButton() => FloatingActionButton.extended(
+      backgroundColor: kColorLightYellow,
+      label: Text(
+        'เพิ่มยาประจำตัว',
+        style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'TH-Chara',
+            fontSize: 30),
+      ),
+      onPressed: () {},
+    );
