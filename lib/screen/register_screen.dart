@@ -57,17 +57,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderRadius: BorderRadius.circular(15),
                                 child: Image.file(
                                   imageFile!,
-                                  width: 50,
-                                  height: 50,
+                                  width: 150,
+                                  height: 150,
                                   fit: BoxFit.cover,
                                 ),
                               )
                             : Container(
-                                width: 50,
-                                height: 50,
+                                width: 150,
+                                height: 150,
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15)),
+                                        color: Colors.red
                                     
                                     ),
                               ),
