@@ -21,7 +21,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   final formKey = GlobalKey<FormState>();
-  String? name,nickname,birthday,age,weight,height,tel;
+  String? name,nickname,age,weight,height,tel;
   File? imageFile;
   final picker = ImagePicker();
  
@@ -68,15 +68,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15)),
-                                        color: Colors.red
-                                    
+                                        color: Colors.white,
                                     ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 50),
+                                  child: Text("เพ่ิมรูป",textAlign: TextAlign.center,style: TextStyle(fontFamily: 'TH-Chara',fontSize: 30 ),),
+                                ),
                               ),
                       ),
                     ),
                   CreateName(),
                   CreateNickname(),
-                  CreateBirthday(),
                   CreateAge(),
                   CreateWeight(),
                   CreateHeight(),
@@ -91,7 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.pushNamed(context, "/home");
                     },
                     child: MainBtnWidget(
-                        colorBtn: kColorPurple,
+                        colorBtn: kColorGreen,
                         textBtn: 'Sign Up',
                         isTransparent: false,
                         haveIcon: false))),
@@ -150,28 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 
-  Widget CreateBirthday() {
-    return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-        child: TextFormField(
-          keyboardType: TextInputType.text,
-          autofocus: false,
-          style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-              color: Colors.black),
-          decoration: InputDecorationWidget(context,'วันเดือนปีเกิด'),
-          validator: (value) {
-            if (value!.isEmpty) {
-              return "กรุณากรอกวันเดือนปีเกิด";
-            }
-            return null;
-          },
-          onChanged: (value) {
-            birthday = value;
-          },
-        ));
-  }
+ 
   Widget CreateAge() {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
