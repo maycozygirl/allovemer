@@ -29,20 +29,25 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
               ),
               child: Column(
                 children: [
-                  StreamBuilder<List<Note>?>(
-                      stream: getStreamListNote(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasError) {
-                          return Text('Error');
-                        }
-                        return Text(
-                          "${note.note_title}",
-                          style: TextStyle(
-                            fontFamily: "TH-Chara",
-                            fontSize: 25,
-                          ),
-                        );
-                      })
+                  
+                  Text("${note.note_title}",
+                    style: TextStyle(
+                        fontFamily: "TH-Chara",
+                        fontSize: 25,
+                        ),
+                      ),
+                      Text("${note.creation_date}",
+                    style: TextStyle(
+                        fontFamily: "TH-Chara",
+                        fontSize: 25,
+                        ),
+                      ),
+                      Text("${note.note_content}",
+                    style: TextStyle(
+                        fontFamily: "TH-Chara",
+                        fontSize: 25,
+                        ),
+                      )
                 ],
               ),
             ),
@@ -52,18 +57,5 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
     );
   }
 
-  Stream<List<Note>?> getStreamListNote() {
-    final firestoreInstance = FirebaseFirestore.instance;
 
-    return firestoreInstance
-        .collection('Notes')
-        .snapshots()
-        .map((snapshot) => snapshot.docs.map((doc) {
-              final noteMapinfo = doc.data();
-              return Note(
-                  creation_date: noteMapinfo['creation_date'],
-                  note_content: noteMapinfo['note_content'],
-                  note_title: noteMapinfo['note_title']);
-            }).toList());
-  }
 }
