@@ -27,12 +27,16 @@ class _MedicineScreenState extends State<MedicineScreen> {
                   color: kColorGreen,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("ยาประจำตัว",textAlign: TextAlign.center,style: TextStyle(fontFamily: 'TH-Chara',fontSize: 40),),
-                ),
-              ),
-            )),
+                 child: Padding(
+                  padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                  child: Column(
+                    children: [
+                      Text("เกมบัตรคำ", style: TextStyle(fontFamily: 'TH-Chara',fontSize: 40),),
+                      ListView(),
+                      ],
+                  ),
+                )),
+          )),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(40.0),

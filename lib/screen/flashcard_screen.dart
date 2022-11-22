@@ -47,7 +47,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                             padding: const EdgeInsets.all(8),
                             child: const Text(
                               "ผลไม้",
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 50),
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 35),
                             ),
                           ),
                           Container(
