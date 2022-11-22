@@ -26,9 +26,55 @@ class _HelpScreenState extends State<HelpScreen> {
                   color: kColorRed,
                   borderRadius: BorderRadius.circular(20),
                 ),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "ติดต่อขอความช่วยเหลือ",
+                        style: TextStyle(fontFamily: 'TH-Chara', fontSize: 35),
+                      ),
+                      Expanded(
+                            child: ListView.builder(
+                        itemCount: 6, //เดี๋ยวเชื่อมฐานข้อมูล
+                        itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Container(
+                                height: 100,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(25)),
+                              ),
+                            );
+                        },
+                      ),
+                      )
+                    ],
+                  ),
+                ),
               ),
             )),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: buildAddButton(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
+
+Widget buildAddButton() => FloatingActionButton.extended(
+      backgroundColor: kColorLightYellow,
+      label: Text(
+        'เพิ่มเบอร์โทรศัพท์',
+        style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'TH-Chara',
+            fontSize: 30),
+      ),
+      onPressed: () {},
+    );
