@@ -16,7 +16,7 @@ class _LogoScreenState extends State<LogoScreen> {
 
   _navigatetohome() async{
     await Future.delayed(Duration(milliseconds: 2000),(){});
-    Navigator.pushNamed(context,"/home");
+    Navigator.pushNamed(context,"/register");
   }
 
   @override
