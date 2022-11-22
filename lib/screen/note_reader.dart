@@ -29,19 +29,21 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
               ),
               child: Column(
                 children: [
-                  
+                  SizedBox(height: 40,),
                   Text("${note.note_title}",
                     style: TextStyle(
                         fontFamily: "TH-Chara",
                         fontSize: 25,
                         ),
                       ),
+                     SizedBox(height: 20,),
                       Text("${note.creation_date}",
                     style: TextStyle(
                         fontFamily: "TH-Chara",
                         fontSize: 25,
                         ),
                       ),
+                       SizedBox(height: 10,),
                       Text("${note.note_content}",
                     style: TextStyle(
                         fontFamily: "TH-Chara",

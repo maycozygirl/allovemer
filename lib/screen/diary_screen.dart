@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:js';
 
 import 'package:al_lover_mer/Themes/colors.dart';
 import 'package:al_lover_mer/model/note_model.dart';
@@ -168,5 +169,7 @@ Widget buildAddButton() => FloatingActionButton.extended(
             fontFamily: 'TH-Chara',
             fontSize: 30),
       ),
-      onPressed: () {},
+      onPressed: () => {
+        
+      },
     );
