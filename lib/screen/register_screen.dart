@@ -112,7 +112,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'ชื่อ-นามสกุล'),
           validator: (value) {
             if (value!.isEmpty) {
@@ -135,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'ชื่อเล่น'),
           validator: (value) {
             if (value!.isEmpty) {
@@ -158,7 +158,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'วันเดือนปีเกิด'),
           validator: (value) {
             if (value!.isEmpty) {
@@ -180,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'อายุ'),
           validator: (value) {
             if (value!.isEmpty) {
@@ -202,7 +202,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'น้ำหนัก'),
           validator: (value) {
             if (value!.isEmpty) {
@@ -224,7 +224,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'ส่วนสูง'),
           validator: (value) {
             if (value!.isEmpty) {
@@ -246,7 +246,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
-              color: Colors.white),
+              color: Colors.black),
           decoration: InputDecorationWidget(context,'เบอร์โทรผู้ดูแล'),
           validator: (value) {
             if (value!.isEmpty) {
