@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../Themes/colors.dart';
 import '../widget/input_decoration.dart';
+import '../widget/main_btn_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -35,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.only(top: 20),
               child: Text('กรอกข้อมูลผู้ป่วย',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontFamily: 'TH-Chara', fontSize: 40)),
@@ -56,14 +57,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderRadius: BorderRadius.circular(15),
                                 child: Image.file(
                                   imageFile!,
-                                  width: 153,
-                                  height: 153,
+                                  width: 50,
+                                  height: 50,
                                   fit: BoxFit.cover,
                                 ),
                               )
                             : Container(
-                                width: 100,
-                                height: 100,
+                                width: 50,
+                                height: 50,
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15)),
@@ -72,7 +73,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                       ),
                     ),
-
                   CreateName(),
                   CreateNickname(),
                   CreateBirthday(),
@@ -83,14 +83,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               )
             ),
+            Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 20),
+                child: InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: MainBtnWidget(
+                        colorBtn: kColorPurple,
+                        textBtn: 'Sign Up',
+                        isTransparent: false,
+                        haveIcon: false))),
           ],
+        
         ),
+        
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(5),
-        child: buildAddButton(),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      
     );
   }
 
