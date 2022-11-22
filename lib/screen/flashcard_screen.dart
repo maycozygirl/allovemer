@@ -13,9 +13,8 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            Container(
+        child: Stack(children: [
+          Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
@@ -35,8 +34,8 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                           children: [
                             Text(
                               "เกมบัตรคำ",
-                              style:
-                                  TextStyle(fontFamily: 'TH-Chara', fontSize: 40),
+                              style: TextStyle(
+                                  fontFamily: 'TH-Chara', fontSize: 40),
                             ),
                             Expanded(
                               child: GridView.count(
@@ -50,7 +49,8 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(20)),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                     padding: const EdgeInsets.all(8),
                                     child: const Text(
                                       "ผลไม้",
@@ -62,7 +62,8 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(20)),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                     padding: const EdgeInsets.all(8),
                                     child: const Text(
                                       "ครอบครัวของฉัน",
@@ -84,9 +85,12 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           Positioned(
               top: 15,
               left: 15,
-              child: BackButton()),]
-        
-        ),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/home");
+                  },
+                  child: BackButton())),
+        ]),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(5),
@@ -98,14 +102,11 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
 }
 
 Widget BackButton() => Container(
-  width: 50,
-  height: 50,
-  decoration: BoxDecoration(
-    shape: BoxShape.circle, 
-    color: Colors.white
-  ),
-  child: Icon(Icons.arrow_back),
-);
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      child: Icon(Icons.arrow_back),
+    );
 
 Widget buildAddButton() => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,

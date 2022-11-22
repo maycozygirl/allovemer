@@ -62,9 +62,13 @@ class _HelpScreenState extends State<HelpScreen> {
                 )),
           ),
           Positioned(
-            top: 15,
-            left: 15,
-            child: BackButton())
+              top: 15,
+              left: 15,
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/home");
+                  },
+                  child: BackButton()))
         ]),
       ),
       floatingActionButton: Padding(
@@ -77,14 +81,11 @@ class _HelpScreenState extends State<HelpScreen> {
 }
 
 Widget BackButton() => Container(
-  width: 50,
-  height: 50,
-  decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    color: Colors.white
-  ),
-  child: Icon(Icons.arrow_back),
-);
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      child: Icon(Icons.arrow_back),
+    );
 
 Widget buildAddButton() => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,

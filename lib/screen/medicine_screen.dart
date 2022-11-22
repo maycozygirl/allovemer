@@ -43,11 +43,14 @@ class _MedicineScreenState extends State<MedicineScreen> {
                 )),
           ),
           Positioned(
-            top: 15,
-            left: 15,
-            child: BackButton())
-            ] 
-        ),
+              top: 15,
+              left: 15,
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/home");
+                  },
+                  child: BackButton()))
+        ]),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(5),
@@ -59,14 +62,11 @@ class _MedicineScreenState extends State<MedicineScreen> {
 }
 
 Widget BackButton() => Container(
-  width: 50,
-  height: 50,
-  decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    color: Colors.white
-  ),
-  child: Icon(Icons.arrow_back),
-);
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      child: Icon(Icons.arrow_back),
+    );
 
 Widget buildAddButton() => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,
