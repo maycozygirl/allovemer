@@ -65,42 +65,64 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                             children: [
                                               AspectRatio(
                                                 aspectRatio: 1,
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius: BorderRadius.circular(10)
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(top: 0),
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                                      children: [
-                                                        SizedBox(height: 20,),
-                                                        Text(
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pushNamed(
+                                                        context, '/NoteReader');
+                                                    
+                                                  },
+                                                  child: Container(
+                                                    width: 40,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10)),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 0),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 20,
+                                                          ),
+                                                          Text(
                                                             "${snapshot.data![index].note_title}",
                                                             style: TextStyle(
-                                                                fontFamily:
-                                                                    "TH-Chara",
-                                                                fontSize: 25,
-                                                                ),
-                                                                ),
-                                                        SizedBox(height: 5,),
-                                                        Text(
-                                                            "${snapshot.data![index].creation_date}",
+                                                              fontFamily:
+                                                                  "TH-Chara",
+                                                              fontSize: 25,
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          Text(
+                                                              "${snapshot.data![index].creation_date}",
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      "TH-Chara",
+                                                                  fontSize:
+                                                                      25)),
+                                                          SizedBox(
+                                                            height: 20,
+                                                          ),
+                                                          Text(
+                                                            "${snapshot.data![index].note_content}",
                                                             style: TextStyle(
                                                                 fontFamily:
                                                                     "TH-Chara",
-                                                                fontSize: 25)),
-                                                        SizedBox(height: 20,),
-                                                        Text(
-                                                          "${snapshot.data![index].note_content}",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  "TH-Chara",
-                                                              fontSize: 20),
-                                                              overflow: TextOverflow.ellipsis,
-                                                        ),
-                                                      ],
+                                                                fontSize: 20),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -115,7 +137,9 @@ class _DiaryScreenState extends State<DiaryScreen> {
                           }),
                     ])),
               ),
-            )));
+            )),
+        floatingActionButton: buildAddButton(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat);
   }
 
   Stream<List<Note>?> getStreamListNote() {
@@ -133,3 +157,16 @@ class _DiaryScreenState extends State<DiaryScreen> {
             }).toList());
   }
 }
+
+Widget buildAddButton() => FloatingActionButton.extended(
+      backgroundColor: kColorLightYellow,
+      label: Text(
+        'เพิ่มบันทึก',
+        style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'TH-Chara',
+            fontSize: 30),
+      ),
+      onPressed: () {},
+    );
