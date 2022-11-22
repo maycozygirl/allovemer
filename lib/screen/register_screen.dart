@@ -87,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 padding: const EdgeInsets.only(top: 10, bottom: 20),
                 child: InkWell(
                     onTap: () {
-                      
+                      Navigator.pushNamed(context, "/home");
                     },
                     child: MainBtnWidget(
                         colorBtn: kColorPurple,
