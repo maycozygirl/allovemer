@@ -6,7 +6,7 @@ import '../Themes/colors.dart';
 InputDecoration InputDecorationWidget (context, labelText) {
   return InputDecoration(
     labelText: labelText,
-    labelStyle: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black),
+    labelStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: Colors.black),
     contentPadding: new EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     enabledBorder: new OutlineInputBorder(
       borderRadius: new BorderRadius.circular(10),

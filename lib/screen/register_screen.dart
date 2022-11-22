@@ -68,9 +68,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15)),
-                                        color: Colors.red
-                                    
+                                        color: Colors.white,
                                     ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 50),
+                                  child: Text("เพ่ิมรูป",textAlign: TextAlign.center,style: TextStyle(fontFamily: 'TH-Chara',fontSize: 30 ),),
+                                ),
                               ),
                       ),
                     ),
@@ -91,7 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.pushNamed(context, "/home");
                     },
                     child: MainBtnWidget(
-                        colorBtn: kColorPurple,
+                        colorBtn: kColorGreen,
                         textBtn: 'Sign Up',
                         isTransparent: false,
                         haveIcon: false))),

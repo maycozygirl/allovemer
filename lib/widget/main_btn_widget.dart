@@ -48,7 +48,7 @@ class MainBtnWidget extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              textBtn, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.white),
+              textBtn, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: Colors.white),
             ),
           ),
         )
