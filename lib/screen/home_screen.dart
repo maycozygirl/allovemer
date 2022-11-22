@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30,
             ),
             Custom_button(
-                text: 'วันสำคัญ',
+                text: 'จดบันทึก',
                 backgroundColor: kColorPurple,
                 onPressed: () {}),
             SizedBox(
