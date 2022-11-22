@@ -11,6 +11,7 @@ class NoteReaderScreen extends StatefulWidget {
 class _NoteReaderScreenState extends State<NoteReaderScreen> {
   @override
   Widget build(BuildContext context) {
+    final note = ModalRoute.of(context)!.settings.arguments as Note;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -35,7 +36,7 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
                           return Text('Error');
                         }
                         return Text(
-                          "${snapshot.data}",
+                          "${note.note_title}",
                           style: TextStyle(
                             fontFamily: "TH-Chara",
                             fontSize: 25,

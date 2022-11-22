@@ -68,7 +68,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                                 child: InkWell(
                                                   onTap: () {
                                                     Navigator.pushNamed(
-                                                        context, '/NoteReader');
+                                                        context, '/NoteReader',arguments: snapshot.data![index]);
                                                     
                                                   },
                                                   child: Container(
