@@ -32,7 +32,6 @@ class _MedicineScreenState extends State<MedicineScreen> {
                   child: Column(
                     children: [
                       Text("เกมบัตรคำ", style: TextStyle(fontFamily: 'TH-Chara',fontSize: 40),),
-                      ListView(),
                       ],
                   ),
                 )),
