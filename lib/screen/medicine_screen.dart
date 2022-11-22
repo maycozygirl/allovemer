@@ -39,7 +39,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
           )),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.all(20.0),
         child: buildAddButton(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
