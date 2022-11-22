@@ -32,14 +32,13 @@ class _MedicineScreenState extends State<MedicineScreen> {
                   child: Column(
                     children: [
                       Text("เกมบัตรคำ", style: TextStyle(fontFamily: 'TH-Chara',fontSize: 40),),
-                      ListView(),
                       ],
                   ),
                 )),
           )),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(40.0),
         child: buildAddButton(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
