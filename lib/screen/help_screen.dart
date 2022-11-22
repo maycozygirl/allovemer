@@ -69,7 +69,7 @@ class _HelpScreenState extends State<HelpScreen> {
 Widget buildAddButton() => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,
       label: Text(
-        'เพิ่มยาประจำตัว',
+        'เพิ่มเบอร์โทรศัพท์',
         style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w300,

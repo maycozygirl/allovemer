@@ -47,7 +47,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                             padding: const EdgeInsets.all(8),
                             child: const Text(
                               "ผลไม้",
-                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 35),
+                              style: TextStyle(fontFamily: 'TH-Chara', fontSize: 50),
                             ),
                           ),
                           Container(
@@ -67,11 +67,10 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                     ),],
                   ),
                 )),
-          )
-        ),
-      ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(20.0),
+          )),
+    ),
+    floatingActionButton: Padding(
+        padding: const EdgeInsets.all(40.0),
         child: buildAddButton(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -79,10 +78,11 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
   }
 }
 
+
 Widget buildAddButton() => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,
       label: Text(
-        'เพิ่มบัตรคำ',
+        'เพิ่มยาประจำตัว',
         style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w300,
@@ -91,3 +91,4 @@ Widget buildAddButton() => FloatingActionButton.extended(
       ),
       onPressed: () {},
     );
+   
