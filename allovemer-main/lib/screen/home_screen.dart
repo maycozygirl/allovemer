@@ -42,7 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
             Custom_button(
                 text: 'วันสำคัญ',
                 backgroundColor: kColorPurple,
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/diary");
+                }),
             SizedBox(
               height: 30,
             ),
