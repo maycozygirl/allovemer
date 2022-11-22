@@ -67,7 +67,27 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                     ),],
                   ),
                 )),
-          )),
-    ));
+          )
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: buildAddButton(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 }
+
+Widget buildAddButton() => FloatingActionButton.extended(
+      backgroundColor: kColorLightYellow,
+      label: Text(
+        'เพิ่มบัตรคำ',
+        style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'TH-Chara',
+            fontSize: 30),
+      ),
+      onPressed: () {},
+    );
