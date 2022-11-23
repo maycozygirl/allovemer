@@ -11,6 +11,10 @@ class AddnoteScreen extends StatefulWidget {
 }
 
 class _AddnoteScreenState extends State<AddnoteScreen> {
+
+  TextEditingController _titleController =TextEditingController();
+  TextEditingController _mainController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +31,24 @@ class _AddnoteScreenState extends State<AddnoteScreen> {
               decoration: BoxDecoration(
                 color: kColorPurple,
                 borderRadius: BorderRadius.circular(20),
-              ),)
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    controller: _titleController,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Note Title",
+                    ),
+                    
+                  )
+                ],
+              ),
+              )
             )
+          
             )
+            
           )
         );
             
