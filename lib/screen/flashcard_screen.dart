@@ -87,7 +87,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
               left: 15,
               child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, "/home");
+                    Navigator.of(context).pop();
                   },
                   child: BackButton())),
         ]),

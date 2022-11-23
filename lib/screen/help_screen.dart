@@ -66,7 +66,7 @@ class _HelpScreenState extends State<HelpScreen> {
               left: 15,
               child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, "/home");
+                    Navigator.of(context).pop();
                   },
                   child: BackButton()))
         ]),
