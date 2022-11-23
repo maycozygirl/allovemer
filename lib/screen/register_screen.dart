@@ -1,4 +1,4 @@
-
+import 'dart:js';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -242,18 +242,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 
-  Widget buildAddButton() => FloatingActionButton.extended(
-      backgroundColor: kColorLightYellow,
-      label: Text(
-        'เพิ่มยาประจำตัว',
-        style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w300,
-            fontFamily: 'TH-Chara',
-            fontSize: 30),
-      ),
-      onPressed: () {},
-    );
 }
 
 
