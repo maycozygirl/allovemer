@@ -3,7 +3,9 @@ import 'package:al_lover_mer/screen/diary_screen.dart';
 import 'package:al_lover_mer/screen/flashcard_screen.dart';
 import 'package:al_lover_mer/screen/help_screen.dart';
 import 'package:al_lover_mer/screen/home_screen.dart';
+import 'package:al_lover_mer/screen/login_screen.dart';
 import 'package:al_lover_mer/screen/note_reader.dart';
+import 'package:al_lover_mer/screen/profile_screen.dart';
 import 'package:al_lover_mer/screen/register_screen.dart';
 import 'package:al_lover_mer/screen/logo_screen.dart';
 import 'package:al_lover_mer/screen/medicine_screen.dart';
@@ -20,5 +22,6 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   "/diary": (BuildContext context) => DiaryScreen(),
   "/NoteReader": (BuildContext context) => NoteReaderScreen(),
   "/Addnote": (BuildContext context) => AddnoteScreen(),
-  "/demo": (BuildContext context) => FlashcardWidget(),
+  "/login": (BuildContext context) => LoginScreen(),
+  "/profile": (BuildContext context) => ProfileScreen(),
 };

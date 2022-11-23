@@ -1,15 +1,18 @@
-
 import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
+import 'dart:math';
+import 'package:al_lover_mer/service/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '../Themes/colors.dart';
+import '../service/auth_service.dart';
 import '../widget/input_decoration.dart';
 import '../widget/main_btn_widget.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -21,8 +24,8 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   final formKey = GlobalKey<FormState>();
-  String? name,nickname,age,weight,height,tel;
-  File? imageFile;
+  String? email,password,name,age,tel;
+  File? photoURL;
   final picker = ImagePicker();
  
 
@@ -49,14 +52,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding: const EdgeInsets.all(20),
                       child: InkWell(
                         onTap: () {
-                          
+                          showButtomSheet(context);
                         },
                         // (เงื่อนไข) ? คำสั่ง1 : คำสั่ง2
-                        child: imageFile != null
+                        child: photoURL != null
                             ? ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
                                 child: Image.file(
-                                  imageFile!,
+                                  photoURL!,
                                   width: 150,
                                   height: 150,
                                   fit: BoxFit.cover,
@@ -77,11 +80,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                       ),
                     ),
+                  CreateEmail(),
+                  CreatePassword(),
                   CreateName(),
-                  CreateNickname(),
                   CreateAge(),
-                  CreateWeight(),
-                  CreateHeight(),
                   CreateTel()
                 ],
               )
@@ -90,7 +92,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 padding: const EdgeInsets.only(top: 10, bottom: 20),
                 child: InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, "/home");
+                      registerHandle(context: context);
+                      Navigator.pushNamed(context, "/login");
                     },
                     child: MainBtnWidget(
                         colorBtn: kColorGreen,
@@ -129,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 
-  Widget CreateNickname() {
+  Widget CreateEmail() {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
         child: TextFormField(
@@ -139,19 +142,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
               color: Colors.black),
-          decoration: InputDecorationWidget(context,'ชื่อเล่น'),
+          decoration: InputDecorationWidget(context,'อีเมลล์'),
           validator: (value) {
             if (value!.isEmpty) {
-              return "กรุณากรอกชื่อเล่น";
+              return "กรุณากรอกอีเมลล์";
             }
             return null;
           },
           onChanged: (value) {
-            nickname = value;
+            email = value;
           },
         ));
   }
-
+  
+  Widget CreatePassword() {
+    return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+        child: TextFormField(
+          keyboardType: TextInputType.text,
+          autofocus: false,
+          style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.black),
+          decoration: InputDecorationWidget(context,'รหัสผ่าน'),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "กรุณากรอกรหัสผ่าน";
+            }
+            return null;
+          },
+          onChanged: (value) {
+            password = value;
+          },
+        ));
+  }
  
   Widget CreateAge() {
     return Padding(
@@ -175,50 +200,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
           },
         ));
   }
-  Widget CreateWeight() {
-    return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-        child: TextFormField(
-          keyboardType: TextInputType.text,
-          autofocus: false,
-          style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-              color: Colors.black),
-          decoration: InputDecorationWidget(context,'น้ำหนัก'),
-          validator: (value) {
-            if (value!.isEmpty) {
-              return "กรุณากรอกน้ำหนัก";
-            }
-            return null;
-          },
-          onChanged: (value) {
-            weight = value;
-          },
-        ));
-  }
-  Widget CreateHeight() {
-    return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-        child: TextFormField(
-          keyboardType: TextInputType.text,
-          autofocus: false,
-          style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-              color: Colors.black),
-          decoration: InputDecorationWidget(context,'ส่วนสูง'),
-          validator: (value) {
-            if (value!.isEmpty) {
-              return "กรุณากรอกส่วนสูง";
-            }
-            return null;
-          },
-          onChanged: (value) {
-            height = value;
-          },
-        ));
-  }
+  
+ 
   Widget CreateTel() {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
@@ -242,9 +225,108 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 
+
+   Future<void> registerHandle({required BuildContext context}) async {
+    final authService = Provider.of<AuthService>(context, listen: false);
+    final storageService = Provider.of<StorageService>(context, listen: false);
+    String? photourl;
+
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+    if (!formKey.currentState!.validate()) return;
+    formKey.currentState!.save();
+
+    if (photoURL != null) {
+      photourl = await storageService.uploadProductImage(imageFile:photoURL!);
+    }
+
+    print(photoURL);
+    
+
+      showDialog(
+          context: context,
+          builder: ((context) => Center(
+                child: CircularProgressIndicator(strokeWidth: 4),
+              )));
+
+      try {
+        await authService.createUser(
+          photoURL:photourl,
+          email: email,
+          password: password,
+          name: name,
+          age: age,
+          tel: tel,
+
+        ).then((value) => print(value.tel));
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/login', (route) => false);
+      } on auth.FirebaseAuthException catch (e) {
+        Navigator.of(context).pop();
+      }
+    }
+  }
+
+  Future<void> showButtomSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            child: Wrap(
+              children: [
+                ListTile(
+                  onTap: () {
+                    openGallery(context);
+                  },
+                  leading: SvgPicture.asset(
+                    'assets/icons/gallery.svg',
+                    color: kColorPurple,
+                  ),
+                  title: Text('Gallery',
+                      style: TextStyle(fontSize: 20),)
+                ),
+                ListTile(
+                  onTap: () {
+                    openCamera(context);
+                  },
+                  leading: SvgPicture.asset(
+                    'assets/icons/camera.svg',
+                    color: kColorPurple,
+                  ),
+                  title: Text('Camera',
+                      style: TextStyle(fontSize: 20),)
+                )
+              ],
+            ),
+          );
+        });
+  }
+  
+  openGallery(BuildContext context) async {
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      if (pickedFile != null) {
+        photoURL = File(pickedFile.path);
+      } else {
+        print('No Image selected');
+      }
+    });
+    Navigator.of(context).pop();
+  }
+
+  openCamera(BuildContext context) async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    setState(() {
+      if (pickedFile != null) {
+        photoURL = File(pickedFile.path);
+      } else {
+        print('No Image selected');
+      }
+    });
+    
+ 
 }
 
 
-
-
-
+}

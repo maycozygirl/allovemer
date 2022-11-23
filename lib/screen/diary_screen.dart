@@ -117,17 +117,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                                               SizedBox(
                                                                 height: 20,
                                                               ),
-                                                              Text(
-                                                                "${snapshot.data![index].note_content}",
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        "TH-Chara",
-                                                                    fontSize:
-                                                                        20),
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                              ),
+                                                              
                                                             ],
                                                           ),
                                                         ),
@@ -194,5 +184,7 @@ Widget buildAddButton() => FloatingActionButton.extended(
             fontFamily: 'TH-Chara',
             fontSize: 30),
       ),
-      onPressed: () => {},
+      onPressed: () => {
+       
+      },
     );

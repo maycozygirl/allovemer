@@ -1,6 +1,10 @@
 import 'package:al_lover_mer/routes.dart';
+import 'package:al_lover_mer/service/auth_service.dart';
+import 'package:al_lover_mer/service/database_service.dart';
+import 'package:al_lover_mer/service/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 
 Future<void> main() async {
@@ -15,11 +19,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/demo',
-      theme: ThemeData(fontFamily: 'TH-Chara'),
-      routes: routes,
+    return MultiProvider(
+      providers:[
+        Provider<DatabaseService>(create: (_) => DatabaseService()),
+        Provider<StorageService>(create: (_) => StorageService()),
+
+        ProxyProvider<DatabaseService, AuthService>(
+            update: (_, dbService, __) => AuthService(dbService: dbService))
+       
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/logoscreen',
+        theme: ThemeData(fontFamily: 'TH-Chara'),
+        routes: routes,
+      ),
     );
   }
 }

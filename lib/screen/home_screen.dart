@@ -1,4 +1,5 @@
 import 'package:al_lover_mer/Themes/colors.dart';
+import 'package:al_lover_mer/widget/main_btn_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 30,
+            ),
             Custom_button(
               text: 'เกมบัตรคำ',
               onPressed: () {
@@ -53,7 +57,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: kColorRed,
                 onPressed: () {
                   Navigator.pushNamed(context, "/help");
-                })
+                }),
+                SizedBox(height: 15,),
+               Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: InkWell(
+                 onTap: () {
+                      Navigator.pushNamed(context, '/profile');
+                  },
+                  child: MainBtnWidget(
+                        colorBtn: kColorGrey,
+                         textBtn: 'ข้อมูลส่วนตัว',
+                         isTransparent: false,
+                         haveIcon: false))),
           ],
         )),
       ),

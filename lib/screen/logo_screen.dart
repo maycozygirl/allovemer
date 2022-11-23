@@ -16,7 +16,7 @@ class _LogoScreenState extends State<LogoScreen> {
 
   _navigatetohome() async{
     await Future.delayed(Duration(milliseconds: 2000),(){});
-    Navigator.pushNamed(context,"/register");
+    Navigator.pushNamed(context,"/login");
   }
 
   @override
@@ -31,7 +31,9 @@ class _LogoScreenState extends State<LogoScreen> {
           child: Center(
             child: Text("Allovemer",style: TextStyle(fontFamily: "TH-Chara",fontSize: 70),),
           ),
+          
         ),
+        
       );
       
   }
