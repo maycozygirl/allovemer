@@ -7,6 +7,7 @@ import 'package:al_lover_mer/screen/note_reader.dart';
 import 'package:al_lover_mer/screen/register_screen.dart';
 import 'package:al_lover_mer/screen/logo_screen.dart';
 import 'package:al_lover_mer/screen/medicine_screen.dart';
+import 'package:al_lover_mer/widget/flashcard_widget.dart';
 import 'package:flutter/cupertino.dart';
 
 final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
@@ -19,4 +20,5 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   "/diary": (BuildContext context) => DiaryScreen(),
   "/NoteReader": (BuildContext context) => NoteReaderScreen(),
   "/Addnote": (BuildContext context) => AddnoteScreen(),
+  "/demo": (BuildContext context) => FlashcardWidget(),
 };

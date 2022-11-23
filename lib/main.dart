@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/logoscreen',
+      initialRoute: '/demo',
       theme: ThemeData(fontFamily: 'TH-Chara'),
       routes: routes,
     );

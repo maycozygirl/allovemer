@@ -1,9 +1,9 @@
+import 'package:al_lover_mer/Themes/colors.dart';
 import 'package:flutter/material.dart';
 
-class flashcardWidget extends StatelessWidget {
-  const flashcardWidget({super.key});
+class FlashcardWidget extends StatelessWidget {
+  const FlashcardWidget({super.key});
   
-  get kColorRed => null;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class flashcardWidget extends StatelessWidget {
                 padding: EdgeInsets.only(top: 50),
                 child: Center(
                   child: Container(
-                    width: 350,
-                    height: 730,
+
+                    height: 500,
                     decoration: BoxDecoration(
                       color: kColorRed,
                       borderRadius: BorderRadius.circular(20),
