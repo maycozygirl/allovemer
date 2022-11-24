@@ -1,6 +1,10 @@
 import 'package:al_lover_mer/screen/add_note_screen.dart';
+import 'package:al_lover_mer/screen/congrate_screen.dart';
 import 'package:al_lover_mer/screen/diary_screen.dart';
+import 'package:al_lover_mer/screen/flashcard_break.dart';
+import 'package:al_lover_mer/screen/flashcard_flip.dart';
 import 'package:al_lover_mer/screen/flashcard_screen.dart';
+import 'package:al_lover_mer/screen/flashcard_text.dart';
 import 'package:al_lover_mer/screen/help_screen.dart';
 import 'package:al_lover_mer/screen/home_screen.dart';
 import 'package:al_lover_mer/screen/login_screen.dart';
@@ -24,4 +28,8 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   "/Addnote": (BuildContext context) => AddnoteScreen(),
   "/login": (BuildContext context) => LoginScreen(),
   "/profile": (BuildContext context) => ProfileScreen(),
+  "/flashcardtext": (BuildContext context) => FlashcardText(),
+  "/congrate": (BuildContext context) => CongrateScreen(),
+  "/flashcardflip": (BuildContext context) => FlashcardFlip(),
+  "/flashcardbreak": (BuildContext context) => FlashcardBreak(),
 };

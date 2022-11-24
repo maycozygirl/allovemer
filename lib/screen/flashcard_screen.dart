@@ -1,4 +1,6 @@
 import 'package:al_lover_mer/Themes/colors.dart';
+import 'package:al_lover_mer/screen/flashcard_flip.dart';
+import 'package:al_lover_mer/screen/flashcard_text.dart';
 import 'package:flutter/material.dart';
 
 class FlashcardScreen extends StatefulWidget {
@@ -45,32 +47,55 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                                 mainAxisSpacing: 10,
                                 crossAxisCount: 2,
                                 children: <Widget>[
-                                  Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    padding: const EdgeInsets.all(8),
-                                    child: const Text(
-                                      "ผลไม้",
-                                      style: TextStyle(
-                                          fontFamily: 'TH-Chara', fontSize: 35),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  FlashcardFlip(
+                                                    type: 'fruit',
+                                                  )));
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      padding: const EdgeInsets.all(8),
+                                      child: const Text(
+                                        "ผลไม้",
+                                        style: TextStyle(
+                                            fontFamily: 'TH-Chara',
+                                            fontSize: 35),
+                                      ),
                                     ),
                                   ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    padding: const EdgeInsets.all(8),
-                                    child: const Text(
-                                      "ครอบครัวของฉัน",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontFamily: 'TH-Chara',
-                                        fontSize: 35,
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  FlashcardFlip(
+                                                    type: 'vegetable',
+                                                  )));
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      padding: const EdgeInsets.all(8),
+                                      child: const Text(
+                                        "ผัก",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontFamily: 'TH-Chara',
+                                          fontSize: 35,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -87,7 +112,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
               left: 15,
               child: InkWell(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Navigator.pushNamed(context, "/home");
                   },
                   child: BackButton())),
         ]),

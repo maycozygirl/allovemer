@@ -1,29 +1,28 @@
 import 'dart:developer';
 import 'dart:math' as math;
-
 import 'package:al_lover_mer/Themes/colors.dart';
 import 'package:al_lover_mer/flashcard_datafruit.dart';
 import 'package:al_lover_mer/flashcard_datavegetable.dart';
+import 'package:al_lover_mer/screen/flashcard_break.dart';
 import 'package:al_lover_mer/utils/showSnackBar.dart';
 import 'package:al_lover_mer/widget/input_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class FlashcardText extends StatefulWidget {
-  FlashcardText({super.key, this.type});
+class FlashcardFlip extends StatefulWidget {
+  FlashcardFlip({super.key, this.type});
   String? type;
 
   @override
-  State<FlashcardText> createState() => _FlashcardTextState();
+  State<FlashcardFlip> createState() => _FlashcardFlipState();
 }
 
-class _FlashcardTextState extends State<FlashcardText> {
+class _FlashcardFlipState extends State<FlashcardFlip> {
   String? name;
   List data = [];
   final random = new math.Random.secure();
   int index = 0;
-  TextEditingController answerController = new TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
@@ -43,13 +42,6 @@ class _FlashcardTextState extends State<FlashcardText> {
         });
       }
     }
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    answerController.dispose();
   }
 
   @override
@@ -84,21 +76,13 @@ class _FlashcardTextState extends State<FlashcardText> {
                                   fit: BoxFit.fill)),
                         ),
                         Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: TextFormField(
-                            controller: answerController,
+                        Center(
+                          child: Text(
+                            "${data[index]['answer']}",
                             style: TextStyle(
-                                fontFamily: 'TH-Chara',
-                                fontSize: 25,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w600),
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.black)),
-                                labelText: 'คำตอบ',
-                                border: OutlineInputBorder()),
+                                fontFamily: "TH-Chara",
+                                fontSize: 50),
                           ),
                         ),
                         Spacer(),
@@ -135,36 +119,24 @@ class _FlashcardTextState extends State<FlashcardText> {
                 ),
               ),
               onTap: () {
-                if (answerController.text == data[index]['answer']) {
-                  data.removeWhere(
-                      (item) => item['answer'] == answerController.text);
-                  if (data.isNotEmpty) {
-                    setState(() {
-                      index = random.nextInt(data.length);
-                    });
-                  }
-                } else {
-                  if (data.isNotEmpty) {
-                    final snackBar = SnackBar(
-                      content: Text(
-                        "คำตอบผิด ลองใหม่อีกครั้งนะคะ",
-                        style: TextStyle(fontFamily: "TH-Chara", fontSize: 20),
-                      ),
-                      backgroundColor: Colors.red,
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  }
+                data.remove(data[index]);
+                if (data.isNotEmpty) {
+                  setState(() {
+                    index = random.nextInt(data.length);
+                  });
                 }
 
                 if (data.isEmpty) {
-                  Navigator.pushNamed(context, '/congrate');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FlashcardBreak(
+                                type: widget.type!,
+                              )));
                 }
                 // }
                 //TODO :: congrate modal check
                 //TODO :: snackbar check
-                log(index.toString());
-                answerController.text = '';
-                // Navigator.pop(context);
               },
             ))
       ]),
