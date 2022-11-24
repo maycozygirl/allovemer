@@ -1,5 +1,6 @@
 import 'package:al_lover_mer/Themes/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class HelpScreen extends StatefulWidget {
   const HelpScreen({super.key});
@@ -37,24 +38,119 @@ class _HelpScreenState extends State<HelpScreen> {
                             style:
                                 TextStyle(fontFamily: 'TH-Chara', fontSize: 35),
                           ),
-                          Expanded(
-                            child: ListView.builder(
-                              itemCount: 6, //เดี๋ยวเชื่อมฐานข้อมูล
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Container(
-                                    height: 100,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(25)),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              FlutterPhoneDirectCaller.callNumber('1669');
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20)),
+                                height: 50,
+                                width: 280,
+                                child: Column(children: [
+                                  Spacer(),
+                                  Text(
+                                    'ศูนย์การแพทย์ฉุกเฉิน : 1669',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 25),
                                   ),
-                                );
-                              },
-                            ),
-                          )
+                                  Spacer(),
+                                ])),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              FlutterPhoneDirectCaller.callNumber('1668');
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20)),
+                                height: 50,
+                                width: 280,
+                                child: Column(children: [
+                                  Spacer(),
+                                  Text(
+                                    'สายด่วนโควิด-19 : 1668',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Spacer(),
+                                ])),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              FlutterPhoneDirectCaller.callNumber('1554');
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20)),
+                                height: 50,
+                                width: 280,
+                                child: Column(children: [
+                                  Spacer(),
+                                  Text(
+                                    'วชิรพยาบาล : 1554',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Spacer(),
+                                ])),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          InkWell(onTap: () {
+                            FlutterPhoneDirectCaller.callNumber('191');
+                          },
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  height: 50,
+                                  width: 280,
+                                  child: Column(children: [
+                                    Spacer(),
+                                    Text(
+                                      'สถานีตำรวจ : 191',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 25),
+                                    ),
+                                    Spacer(),
+                                  ]))
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          InkWell(onTap: () {
+                            FlutterPhoneDirectCaller.callNumber('1323');
+                          },
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  height: 50,
+                                  width: 280,
+                                  child: Column(children: [
+                                    Spacer(),
+                                    Text(
+                                      'สายด่วนสุขภาพจิต : 1323',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 25),
+                                    ),
+                                    Spacer(),
+                                  ]))
+                          ),
                         ],
                       ),
                     ),
