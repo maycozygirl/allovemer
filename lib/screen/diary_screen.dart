@@ -97,18 +97,19 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                                               ),
                                                               Text(
                                                                 "${snapshot.data![index].note_title}",
+                                                                textAlign: TextAlign.center,
                                                                 style:
                                                                     TextStyle(
                                                                   fontFamily:
                                                                       "TH-Chara",
-                                                                  fontSize: 25,
+                                                                  fontSize: 20,
                                                                 ),
                                                               ),
                                                               SizedBox(
                                                                 height: 5,
                                                               ),
                                                               Text(
-                                                                  "${snapshot.data![index].creation_date}",
+                                                                  "${snapshot.data![index].note_date}",
                                                                   style: TextStyle(
                                                                       fontFamily:
                                                                           "TH-Chara",
@@ -147,7 +148,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
             ),
           ]),
         ),
-        floatingActionButton: buildAddButton(),
+        floatingActionButton: buildAddButton(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat);
   }
 
@@ -160,7 +161,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
         .map((snapshot) => snapshot.docs.map((doc) {
               final noteMapinfo = doc.data();
               return Note(
-                  creation_date: noteMapinfo['creation_date'],
+                  note_date: noteMapinfo['note_date'],
                   note_content: noteMapinfo['note_content'],
                   note_title: noteMapinfo['note_title']);
             }).toList());
@@ -174,7 +175,7 @@ Widget BackButton() => Container(
       child: Icon(Icons.arrow_back),
     );
 
-Widget buildAddButton() => FloatingActionButton.extended(
+Widget buildAddButton(BuildContext context) => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,
       label: Text(
         'เพิ่มบันทึก',
@@ -185,6 +186,6 @@ Widget buildAddButton() => FloatingActionButton.extended(
             fontSize: 30),
       ),
       onPressed: () => {
-       
+       Navigator.pushNamed(context, '/Addnote')
       },
     );
