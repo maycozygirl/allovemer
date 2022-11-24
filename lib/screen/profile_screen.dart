@@ -33,50 +33,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(top:20.0),
-              child: Center(
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    Center(
-                      child: user?.photoURL != null ? 
-                      Container(
-                        width: 150,
-                        height: 150,
-                        child:  Image.network('${user?.photoURL}' ,fit: BoxFit.fill,) ,
-                      )
-                      : Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15),),
-                          color: Colors.white,
-                        ),
-                        ),
-                      ),
-                    SizedBox(height: 20,),
-                    Text('คุณ ${user?.name}' ,textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'TH-Chra',fontSize: 20),),
-                    SizedBox(height: 10,),
-                    Text('อายุ ${user?.age} ปี ',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'TH-Chra',fontSize: 20)),
-                    SizedBox(height: 10,),
-                    Text('เบอร์ติดต่อผู้ดูแล : ${user?.tel}',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'TH-Chra',fontSize: 20)),
-                    SizedBox(height: 20,),
-                    InkWell(
-                      onTap: (){
-                        logoutHandle(context: context);
-                      },
-                      child: MainBtnWidget(colorBtn: kColorRed, textBtn: 'Sign Out', isTransparent: false, haveIcon: false))
-                  ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+           Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top:20.0),
+                  child: Center(
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Center(
+                          child: user?.photoURL != null ? 
+                          Container(
+                            width: 150,
+                            height: 150,
+                            child:  Image.network('${user?.photoURL}' ,fit: BoxFit.fill,) ,
+                          )
+                          : Container(
+                            width: 150,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(15),),
+                              color: Colors.white,
+                            ),
+                            ),
+                          ),
+                        SizedBox(height: 20,),
+                        Text('คุณ ${user?.name}' ,textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'TH-Chra',fontSize: 20),),
+                        SizedBox(height: 10,),
+                        Text('อายุ ${user?.age} ปี ',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'TH-Chra',fontSize: 20)),
+                        SizedBox(height: 10,),
+                        Text('เบอร์ติดต่อผู้ดูแล : ${user?.tel}',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'TH-Chra',fontSize: 20)),
+                        SizedBox(height: 20,),
+                        InkWell(
+                          onTap: (){
+                            logoutHandle(context: context);
+                          },
+                          child: MainBtnWidget(colorBtn: kColorRed, textBtn: 'Sign Out', isTransparent: false, haveIcon: false))
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
+            Positioned(
+              top: 15,
+              left: 15,
+              child: InkWell(
+                onTap: (){
+                  Navigator.of(context).pop();
+                },
+                child: BackButton(),
+              )
+            )
+          ]
+        ),
+      ),
+         
         
       );
   }
@@ -91,4 +108,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     }
   }
+  
 }
+
+Widget BackButton() => Container(
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      child: Icon(Icons.arrow_back),
+    );

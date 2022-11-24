@@ -46,7 +46,7 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
                         height: 20,
                       ),
                       Text(
-                        "${note.creation_date}",
+                        "${note.note_date}",
                         style: TextStyle(
                           fontFamily: "TH-Chara",
                           fontSize: 25,

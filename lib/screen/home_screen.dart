@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 30,
+              height: 20,
             ),
             Custom_button(
               text: 'เกมบัตรคำ',
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: kColorYellow,
             ),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Custom_button(
                 text: 'ยาประจำตัว',
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, "/medicine");
                 }),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Custom_button(
                 text: 'จดบันทึก',
@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, "/diary");
                 }),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Custom_button(
                 text: 'ติดต่อขอความช่วยเหลือ',
@@ -58,8 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, "/help");
                 }),
-                SizedBox(height: 15,),
-               Padding(
+                SizedBox(height: 15
+              ),
+            Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: InkWell(
                  onTap: () {

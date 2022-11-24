@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/help',
+        initialRoute: '/logoscreen',
         theme: ThemeData(fontFamily: 'TH-Chara'),
         routes: routes,
       ),

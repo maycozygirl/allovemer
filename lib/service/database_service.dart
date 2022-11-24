@@ -10,6 +10,7 @@ class DatabaseService {
     final Map<String, dynamic> userInfo = user.toMap();
     await docUser.set(userInfo);
   }
+
   Future<User?> getUserFromUid({required uid}) async {
     final docUser = _firebaseStore.collection('Users').doc(uid);
     final snapshot = await docUser.get();
@@ -20,4 +21,11 @@ class DatabaseService {
     final user = User.fromMap(userMap: userInfo!);
     return user;
   }
+
+  Future<void> addNote({required product}) async {
+      final docProduct = _firebaseStore.collection('Notes').doc();
+      final Map<String, dynamic> productInfo = product.toMap();
+      await docProduct.set(productInfo);
+    }
+  
 }
