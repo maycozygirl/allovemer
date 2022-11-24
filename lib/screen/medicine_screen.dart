@@ -54,7 +54,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(5),
-        child: buildAddButton(),
+        child: buildAddButton(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
@@ -68,7 +68,7 @@ Widget BackButton() => Container(
       child: Icon(Icons.arrow_back),
     );
 
-Widget buildAddButton() => FloatingActionButton.extended(
+Widget buildAddButton(BuildContext context) => FloatingActionButton.extended(
       backgroundColor: kColorLightYellow,
       label: Text(
         'เพิ่มยาประจำตัว',
@@ -78,5 +78,7 @@ Widget buildAddButton() => FloatingActionButton.extended(
             fontFamily: 'TH-Chara',
             fontSize: 30),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, '/addmedicine');
+      },
     );

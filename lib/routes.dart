@@ -1,3 +1,5 @@
+
+import 'package:al_lover_mer/screen/add_medicine_screen.dart';
 import 'package:al_lover_mer/screen/add_note_screen.dart';
 import 'package:al_lover_mer/screen/diary_screen.dart';
 import 'package:al_lover_mer/screen/flashcard_screen.dart';
@@ -24,4 +26,8 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   "/Addnote": (BuildContext context) => AddnoteScreen(),
   "/login": (BuildContext context) => LoginScreen(),
   "/profile": (BuildContext context) => ProfileScreen(),
+  "/addmedicine": (BuildContext context) => addMedicineScreen(),
+
+  
+
 };

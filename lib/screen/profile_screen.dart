@@ -111,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   
 }
 
-Widget BackButton() => Container(
+Widget Button() => Container(
       width: 50,
       height: 50,
       decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
