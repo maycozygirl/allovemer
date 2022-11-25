@@ -33,15 +33,17 @@ class _FlashcardTextState extends State<FlashcardText> {
       if (widget.type == "fruit") {
         setState(() {
           data = List.from(dataFlashcardFruit);
-          index = random.nextInt(data.length);
+      index = random.nextInt(data.length);
         });
       }
       if (widget.type == "vegetable") {
         setState(() {
           data = List.from(dataFlashcardVegetable);
-          index = random.nextInt(data.length);
+      index = random.nextInt(data.length);
+
         });
       }
+
     }
   }
 

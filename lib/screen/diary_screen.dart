@@ -24,7 +24,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     image: DecorationImage(
                         image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 100),
+                  padding: const EdgeInsets.only(top: 50),
                   child: Center(
                     child: Container(
                         width: 350,
@@ -50,9 +50,13 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                 }
                                 return Flexible(
                                   child: GridView.builder(
+                                      primary: false,
+                                      padding: const EdgeInsets.all(10),
                                       gridDelegate:
                                           SliverGridDelegateWithFixedCrossAxisCount(
                                               crossAxisCount: 2,
+                                              crossAxisSpacing: 2,
+                                              mainAxisSpacing:0.1,
                                               childAspectRatio: 0.9),
                                       itemCount: snapshot.data?.length,
                                       itemBuilder:
@@ -97,7 +101,9 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                                               ),
                                                               Text(
                                                                 "${snapshot.data![index].note_title}",
-                                                                textAlign: TextAlign.center,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                                 style:
                                                                     TextStyle(
                                                                   fontFamily:
@@ -118,7 +124,6 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                                               SizedBox(
                                                                 height: 20,
                                                               ),
-                                                              
                                                             ],
                                                           ),
                                                         ),
@@ -185,7 +190,5 @@ Widget buildAddButton(BuildContext context) => FloatingActionButton.extended(
             fontFamily: 'TH-Chara',
             fontSize: 30),
       ),
-      onPressed: () => {
-       Navigator.pushNamed(context, '/Addnote')
-      },
+      onPressed: () => {Navigator.pushNamed(context, '/Addnote')},
     );

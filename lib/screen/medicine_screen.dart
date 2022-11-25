@@ -37,6 +37,40 @@ class _MedicineScreenState extends State<MedicineScreen> {
                               style: TextStyle(
                                   fontFamily: 'TH-Chara', fontSize: 40),
                             ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                                width: 300,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Spacer(),
+                                      Text(
+                                        "ชื่อยา : Aricept   ",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        "จำนวนเม็ด : 1 เม็ด  ",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        "เวลา : 21.00      ",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      Spacer()
+                                    ],
+                                  ),
+                                ))
                           ],
                         ),
                       )),

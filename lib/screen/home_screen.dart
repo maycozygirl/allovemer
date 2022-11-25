@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: kColorYellow,
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Custom_button(
                 text: 'ยาประจำตัว',
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, "/medicine");
                 }),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Custom_button(
                 text: 'จดบันทึก',
@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, "/diary");
                 }),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Custom_button(
                 text: 'ติดต่อขอความช่วยเหลือ',
@@ -58,19 +58,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, "/help");
                 }),
-                SizedBox(height: 15
-              ),
+            SizedBox(height: 20),
             Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: InkWell(
-                 onTap: () {
-                      Navigator.pushNamed(context, '/profile');
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
                   },
-                  child: MainBtnWidget(
-                        colorBtn: kColorGrey,
-                         textBtn: 'ข้อมูลส่วนตัว',
-                         isTransparent: false,
-                         haveIcon: false))),
+                  child: Container(
+                    width: 250,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: kColorBlue,
+                        borderRadius: BorderRadius.circular(45),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade600.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          )
+                        ]),
+                    child: Center(
+                        child: Text(
+                      "ข้อมูลส่วนตัว",
+                      style: TextStyle(fontFamily: "TH-Chara", fontSize: 25),
+                    )),
+                  ),
+                )),
           ],
         )),
       ),
@@ -94,13 +109,21 @@ class Custom_button extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
-        height: 150,
+        height: 140,
         width: 300,
         decoration: BoxDecoration(
-            color: backgroundColor, borderRadius: BorderRadius.circular(45)),
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(45),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              )
+            ]),
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(

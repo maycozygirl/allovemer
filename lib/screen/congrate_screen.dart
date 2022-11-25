@@ -33,22 +33,47 @@ class _CongrateScreenState extends State<CongrateScreen> {
             ),
             child: Center(
                 child: Container(
-              width: 330,
-              height: 500,
-              decoration: BoxDecoration(
-                color: kColorGreen,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(alignment: Alignment.center, children: [
-                Center(
-                  child: Text(
-                    "Congratulation",
-                    style: TextStyle(
-                        color: kColorRed, fontFamily: "CH-Chara", fontSize: 40),
-                  ),
-                ),
-              ]),
-            )),
+                    width: 330,
+                    height: 500,
+                    decoration: BoxDecoration(
+                      color: kColorGreen,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        Spacer(),
+                        Text(
+                          "Congratulation",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontFamily: "TH-Chara",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 50),
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Text(
+                          "ยินดีด้วย",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontFamily: "TH-Chara",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 50),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          "เกมจบแล้ว",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontFamily: "TH-Chara",
+                              fontSize: 50),
+                        ),
+                        Spacer()
+                      ],
+                    ))),
           ),
           Positioned(
               top: 15,
@@ -66,9 +91,12 @@ class _CongrateScreenState extends State<CongrateScreen> {
         blastDirectionality: BlastDirectionality.explosive,
         colors: const [
           kColorGreen,
+          kColorBlue,
+          kColorLightGreen,
           kColorLightYellow,
           kColorPurple,
           kColorRed,
+          kColorPink,
           kColorYellow
         ],
       ),

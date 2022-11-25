@@ -10,55 +10,74 @@ class addMedicineScreen extends StatefulWidget {
 }
 
 class _addMedicineScreenState extends State<addMedicineScreen> {
-  String? medicine ,dose;
+  String? medicine, dose;
   final formKey = GlobalKey<FormState>();
   DateTime setDate = DateTime.now();
-  TimeOfDay time  =TimeOfDay(hour: 10, minute: 30);
+  TimeOfDay time = TimeOfDay(hour: 10, minute: 30);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children:[ Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
-                child: Padding(
-                    padding: EdgeInsets.only(top: 50),
-                    child: Center(
-                      child: Container(
-                          width: 350,
-                          height: 730,
-                          decoration: BoxDecoration(
-                            color: kColorGreen,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(height: 30,),
-                              Text('เพิ่มยาประจำตัว',style: TextStyle(fontFamily: 'TH-Chara',fontSize: 30)),
-                              SizedBox(height: 10,),
-                              AddMedicine(),
-                              SizedBox(height: 10,),
-                              AddDose(),
-                              Text('${time.hour}:${time.minute}',style: TextStyle(fontFamily: 'TH-Chara',fontSize: 30),
-                              ),
-                              SizedBox(height: 20),
-                              ElevatedButton(
-                                onPressed: () async{
-                                  TimeOfDay? Newtime = await showTimePicker(context: context, initialTime: time);
-                                  if (Newtime == null) return;
-        
-                                  setState(() => time = Newtime);
-                                } ,
-                                child: Text('เลือกเวลา',style: TextStyle(fontFamily: 'TH-Chara',fontSize: 20),))
-                            ],
-                          ),
-                          ),
-                    )),
+        child: Stack(children: [
+          Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
+            child: Padding(
+                padding: EdgeInsets.only(top: 50),
+                child: Center(
+                  child: Container(
+                    width: 350,
+                    height: 730,
+                    decoration: BoxDecoration(
+                      color: kColorGreen,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text('เพิ่มยาประจำตัว',
+                            style: TextStyle(
+                                fontFamily: 'TH-Chara', fontSize: 30)),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        AddMedicine(),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        AddDose(),
+                        SizedBox(height: 20,),
+                        Text("เวลาในการรับประทานยา",style: TextStyle(fontFamily: 'TH-Chara', fontSize: 30),),
+                        SizedBox(height: 20,),
+                        Text(
+                          '${time.hour}:${time.minute}',
+                          style:
+                              TextStyle(fontFamily: 'TH-Chara', fontSize: 30),
+                        ),
+                        SizedBox(height: 20),
+                        ElevatedButton(
+                            onPressed: () async {
+                              TimeOfDay? Newtime = await showTimePicker(
+                                  context: context, initialTime: time);
+                              if (Newtime == null) return;
+
+                              setState(() => time = Newtime);
+                            },
+                            child: Text(
+                              'เลือกเวลา',
+                              style: TextStyle(
+                                  fontFamily: 'TH-Chara', fontSize: 20),
+                            ))
+                      ],
+                    ),
+                  ),
+                )),
           ),
-           Positioned(
+          Positioned(
               top: 15,
               left: 15,
               child: InkWell(
@@ -66,9 +85,13 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                     Navigator.of(context).pop();
                   },
                   child: BackButton())),
-          ]
-        ),
+        ]),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(5),
+        child: buildAddButton(context),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -79,10 +102,8 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
           keyboardType: TextInputType.text,
           autofocus: false,
           style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-              color: Colors.black),
-          decoration: InputDecorationWidget(context,'ชื่อยา'),
+              fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black),
+          decoration: InputDecorationWidget(context, 'ชื่อยา'),
           validator: (value) {
             if (value!.isEmpty) {
               return "กรุณายา";
@@ -94,6 +115,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
           },
         ));
   }
+
   Widget AddDose() {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
@@ -101,10 +123,8 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
           keyboardType: TextInputType.text,
           autofocus: false,
           style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-              color: Colors.black),
-          decoration: InputDecorationWidget(context,'จำนวนเม็ด'),
+              fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black),
+          decoration: InputDecorationWidget(context, 'จำนวนเม็ด'),
           validator: (value) {
             if (value!.isEmpty) {
               return "กรุณากรอกจำนวนเม็ด";
@@ -117,11 +137,23 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
         ));
   }
 
-  
   Widget BackButton() => Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-      child: Icon(Icons.arrow_back),
-    );
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+        child: Icon(Icons.arrow_back),
+      );
+  Widget buildAddButton(BuildContext context) => FloatingActionButton.extended(
+    backgroundColor: kColorLightYellow,
+    label: Text(
+      'Comingsoon...',
+      style: TextStyle(
+          color: Colors.black,
+          fontFamily: "TH-Chara",
+          fontSize: 30,
+          fontWeight: FontWeight.w300),
+    ),
+    onPressed: () {},
+  );
 }
+

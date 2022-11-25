@@ -72,7 +72,7 @@ class _AddnoteScreenState extends State<AddnoteScreen> {
                             },
                       child: MainBtnWidget(
                           colorBtn: kColorGreen,
-                          textBtn: 'เพิ่มโน็ต',
+                          textBtn: 'เพิ่มบันทึก',
                           isTransparent: false,
                           haveIcon: false))),
                     ],
